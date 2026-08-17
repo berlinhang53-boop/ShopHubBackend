@@ -164,3 +164,4 @@ C:\Users\INTERN VM-01\Desktop\Asp.Net Visual Studio\ShopHub.API\ShopHub.API\obj\
 C:\Users\INTERN VM-01\Desktop\Asp.Net Visual Studio\ShopHub.API\ShopHub.API\obj\Debug\net10.0\ShopHub.API.pdb
 C:\Users\INTERN VM-01\Desktop\Asp.Net Visual Studio\ShopHub.API\ShopHub.API\obj\Debug\net10.0\ShopHub.API.genruntimeconfig.cache
 C:\Users\INTERN VM-01\Desktop\Asp.Net Visual Studio\ShopHub.API\ShopHub.API\obj\Debug\net10.0\ref\ShopHub.API.dll
+C:\Users\INTERN VM-01\Desktop\Asp.Net Visual Studio\ShopHub.API\ShopHub.API\obj\Debug\net10.0\ShopHub.API.sourcelink.json

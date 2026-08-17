@@ -1,0 +1,20 @@
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core configuration
+appsettings.json
+appsettings.Development.json
+
+# Logs
+*.log

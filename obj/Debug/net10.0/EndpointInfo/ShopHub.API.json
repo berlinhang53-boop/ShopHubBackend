@@ -182,6 +182,16 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Orders/{id}": {

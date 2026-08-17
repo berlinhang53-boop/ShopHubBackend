@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShopHub.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f6d272e3db83890063295cb0898c7e17938ced8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShopHub.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShopHub.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

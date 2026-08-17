@@ -96,6 +96,16 @@
   },
   {
     "ContainingType": "ShopHub.API.Controllers.OrdersController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/Orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopHub.API.Controllers.OrdersController",
     "Method": "GetOrder",
     "RelativePath": "api/Orders/{id}",
     "HttpMethod": "GET",

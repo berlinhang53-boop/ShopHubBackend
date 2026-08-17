@@ -209,4 +209,47 @@ public class OrdersController : ControllerBase
 
         return Ok(orderDto);
     }
+
+
+
+    // ==========================================
+    // GET: api/orders
+    // Admin - Get All Orders
+    // ==========================================
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllOrders()
+    {
+        var orders = await _context.Orders
+            .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
+            .OrderByDescending(o => o.OrderDate)
+            .Select(o => new
+            {
+                id = o.Id,
+                customerName = o.CustomerName,
+                email = o.Email,
+                phone = o.Phone,
+                address = o.Address,
+                totalAmount = o.TotalAmount,
+                orderDate = o.OrderDate,
+                status = o.Status,
+
+                items = o.OrderItems
+                    .Select(oi => new
+                    {
+                        productId = oi.ProductId,
+                        productName = oi.Product.Name,
+                        image = oi.Product.Image,
+                        quantity = oi.Quantity,
+                        unitPrice = oi.UnitPrice,
+                        totalPrice =
+                            oi.UnitPrice * oi.Quantity
+                    })
+                    .ToList()
+            })
+            .ToListAsync();
+
+        return Ok(orders);
+    }
 }
