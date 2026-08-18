@@ -252,4 +252,142 @@ public class OrdersController : ControllerBase
 
         return Ok(orders);
     }
+
+    // ==========================================
+    // PUT: api/orders/1/status
+    // Admin - Update Order Status
+    // ==========================================
+
+    //[HttpPut("{id}/status")]
+    //public async Task<IActionResult> UpdateOrderStatus(
+    //    int id,
+    //    [FromBody] string status)
+    //{
+    //    // Find order
+
+    //    var order = await _context.Orders
+    //        .FindAsync(id);
+
+    //    if (order == null)
+    //    {
+    //        return NotFound(new
+    //        {
+    //            message = "Order not found."
+    //        });
+    //    }
+
+
+    //    // Allowed statuses
+
+    //    var allowedStatuses = new[]
+    //    {
+    //    "Pending",
+    //    "Confirmed",
+    //    "Shipped",
+    //    "Delivered",
+    //    "Cancelled"
+    //};
+
+
+    //    // Check status
+
+    //    if (!allowedStatuses.Contains(status))
+    //    {
+    //        return BadRequest(new
+    //        {
+    //            message = "Invalid order status."
+    //        });
+    //    }
+
+
+    //    // Update status
+
+    //    order.Status = status;
+
+
+    //    // Save
+
+    //    await _context.SaveChangesAsync();
+
+
+    //    return Ok(new
+    //    {
+    //        message = "Order status updated successfully.",
+    //        orderId = order.Id,
+    //        status = order.Status
+    //    });
+    //}
+
+
+
+
+    // ==========================================
+    // PUT: api/orders/{id}/status
+    // Admin - Update Order Status
+    // ==========================================
+
+    [HttpPut("{id}/status")]
+    public async Task<IActionResult> UpdateOrderStatus(
+        int id,
+        [FromBody] string status)
+    {
+        // ------------------------------------------
+        // Find order
+        // ------------------------------------------
+
+        var order = await _context.Orders
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+        if (order == null)
+        {
+            return NotFound(new
+            {
+                message = "Order not found."
+            });
+        }
+
+
+        // ------------------------------------------
+        // Validate status
+        // ------------------------------------------
+
+        var allowedStatuses = new[]
+        {
+        "Pending",
+        "Confirmed",
+        "Shipped",
+        "Delivered",
+        "Cancelled"
+    };
+
+
+        if (!allowedStatuses.Contains(status))
+        {
+            return BadRequest(new
+            {
+                message = "Invalid order status."
+            });
+        }
+
+
+        // ------------------------------------------
+        // Update status
+        // ------------------------------------------
+
+        order.Status = status;
+
+        await _context.SaveChangesAsync();
+
+
+        // ------------------------------------------
+        // Return response
+        // ------------------------------------------
+
+        return Ok(new
+        {
+            message = "Order status updated successfully.",
+            orderId = order.Id,
+            status = order.Status
+        });
+    }
 }
